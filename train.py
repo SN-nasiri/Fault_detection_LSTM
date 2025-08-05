@@ -10,7 +10,7 @@ from models.model import build_lstm_model
 df = pd.read_csv('data/clean_fault_data.csv')  # ← مسیر فایل داده (فعلاً فرضی)
 
 # ---------- 🧹 Preprocessing ----------
-X = df[['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']].values
+X = df[['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']].values 
 y = df['Fault'].values
 
 # Encode class labels to integers starting from 0
