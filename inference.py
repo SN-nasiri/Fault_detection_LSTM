@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
 # 🎯 مسیر مدل آموزش‌داده‌شده
-MODEL_PATH = "saved_model/final_lstm_model.h5"
+MODEL_PATH = "saved_model/fault_lstm_model.h5"
 
 # 🎯 ستون‌های ویژگی
 FEATURE_COLUMNS = ['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']
