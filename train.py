@@ -12,6 +12,7 @@ data_path = os.path.join('data', 'clean_fault_data.csv')
 df = pd.read_csv(data_path)
 
 # ---------- 🧹 Preprocessing ----------
+df = df.dropna()
 X = df[['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']].values
 y = df['Fault'].values
 
