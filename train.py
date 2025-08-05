@@ -14,7 +14,7 @@ X = df[['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']].values
 y = df['Fault'].values
 
 # Encode class labels to integers starting from 0
-unique_labels = sorted(y.unique())
+unique_labels = sorted(np.unique(y))
 label_mapping = {label: idx for idx, label in enumerate(unique_labels)}
 y_encoded = np.array([label_mapping[val] for val in y])
 
