@@ -17,3 +17,22 @@
 ## 🧪 اجرای پیش‌بینی
 ```bash
 python inference.py
+
+
+
+---
+
+### 🔄 ۳. **هم‌راستا کردن `train.py` و `inference.py`**
+
+یکی از اصلی‌ترین مشکلات تفاوت در نرمال‌سازی بود:
+
+- `train.py`: `MinMaxScaler`
+- `inference.py`: `StandardScaler`
+
+🔧 **باید یکی باشه** — ترجیحاً `MinMaxScaler` چون در مدل train شده همینه.
+
+در `inference.py` این خط رو اصلاح کن:
+
+```python
+from sklearn.preprocessing import MinMaxScaler  # ← تغییر به MinMax
+scaler = MinMaxScaler()
