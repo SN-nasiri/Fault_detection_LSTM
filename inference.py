@@ -52,3 +52,7 @@ def run_inference(input_csv_path):
 if __name__ == "__main__":
     result, proba = run_inference("data/clean_fault_data.csv")
     print(result.head())
+
+
+import collections
+print("Predicted Class Distribution:", collections.Counter(y_pred))
