@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 
 # 🎯 مسیر مدل آموزش‌داده‌شده
 MODEL_PATH = "saved_model/fault_lstm_model.h5"
@@ -19,7 +20,8 @@ def preprocess_input_data(df):
     X = df[FEATURE_COLUMNS].values
 
     # نرمال‌سازی
-    scaler = StandardScaler()
+    scaler = MinMaxScaler()
+    #scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
     # reshape برای LSTM
