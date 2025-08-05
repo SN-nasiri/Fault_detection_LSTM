@@ -13,3 +13,4 @@ def build_lstm_model(input_shape, output_dim):
                   optimizer='adam',
                   metrics=['accuracy'])
     return model
+ 
