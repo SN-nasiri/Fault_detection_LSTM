@@ -53,6 +53,7 @@ if __name__ == "__main__":
     result, proba = run_inference("data/clean_fault_data.csv")
     print(result.head())
 
+    # نمایش توزیع کلاس‌های پیش‌بینی‌شده
+    from collections import Counter
+    print("Predicted Class Distribution:", Counter(result['Predicted Fault']))
 
-import collections
-print("Predicted Class Distribution:", collections.Counter(y_pred))
