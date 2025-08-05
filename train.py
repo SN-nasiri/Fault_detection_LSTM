@@ -60,5 +60,5 @@ history = model.fit(
 
 # ---------- 💾 Save Model ----------
 os.makedirs("saved_model", exist_ok=True)
-model.save('saved_model/final_lstm_model.h5')
+model.save('saved_model/fault_lstm_model.h5')
 print("✅ Model saved successfully to 'saved_model/fault_lstm_model.h5'")
