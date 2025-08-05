@@ -1,10 +1,8 @@
-# inference.py
-
 import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import MinMaxScaler
+from collections import Counter
 
 # 🎯 مسیر مدل آموزش‌داده‌شده
 MODEL_PATH = "saved_model/fault_lstm_model.h5"
@@ -20,8 +18,7 @@ def preprocess_input_data(df):
     X = df[FEATURE_COLUMNS].values
 
     # نرمال‌سازی
-    scaler = MinMaxScaler()
-    #scaler = StandardScaler()
+    scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
     # reshape برای LSTM
@@ -49,11 +46,12 @@ def run_inference(input_csv_path):
     df_input['Predicted Fault'] = y_pred
     return df_input[['Predicted Fault']], y_proba
 
+# 🔍 اجرای inference به صورت مستقیم
 if __name__ == "__main__":
-    result, proba = run_inference("data/clean_fault_data.csv")
-    print(result.head())
+    result_df, proba = run_inference("data/clean_fault_data.csv")
 
-    # نمایش توزیع کلاس‌های پیش‌بینی‌شده
-    from collections import Counter
-    print("Predicted Class Distribution:", Counter(result['Predicted Fault']))
+    print("🔹 پیش‌بینی نوع خطا برای ۵ نمونه اول:")
+    print(result_df.head())
 
+    print("\n📊 توزیع کلاس‌های پیش‌بینی‌شده:")
+    print(Counter(result_df['Predicted Fault']))
