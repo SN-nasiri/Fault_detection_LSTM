@@ -7,14 +7,13 @@ from tensorflow.keras.utils import to_categorical
 from models.model import build_lstm_model
 
 # ---------- 📦 Load Data ----------
-df = pd.read_csv('data/clean_fault_data.csv')  # ← مسیر فایل داده (فعلاً فرضی)
-
+df = pd.read_csv('data/clean_fault_data.csv')
 # ---------- 🧹 Preprocessing ----------
 X = df[['Ia', 'Ig', 'Eg', 'Fg', 'Pg', 'Va', 'Vg']].values 
 y = df['Fault'].values
 
 # Encode class labels to integers starting from 0
-unique_labels = sorted(np.unique(y))
+unique_labels = sorted(np.unique(y)) 
 label_mapping = {label: idx for idx, label in enumerate(unique_labels)}
 y_encoded = np.array([label_mapping[val] for val in y])
 
